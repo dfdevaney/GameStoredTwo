@@ -57,15 +57,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Console\ConsoleCreate.cs" />
+    <Compile Include="Console\ConsoleDetail.cs" />
+    <Compile Include="Console\ConsoleEdit.cs" />
+    <Compile Include="Console\ConsoleListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Console\" />
     <Folder Include="User\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameStoredTwo.Data\GameStoredTwo.Data.csproj">
+      <Project>{bbd8bb98-6e2e-4925-b34f-8c5b5880255b}</Project>
+      <Name>GameStoredTwo.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

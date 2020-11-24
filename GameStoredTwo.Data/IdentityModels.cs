@@ -33,7 +33,7 @@ namespace GameStoredTwo.Data
             return new ApplicationDbContext();
         }
         public DbSet<User> Users { get; set; }
-        //public DbSet<Console> Consoles { get; set; }
+        public DbSet<Console> Consoles { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
