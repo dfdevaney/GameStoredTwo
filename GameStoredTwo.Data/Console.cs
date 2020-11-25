@@ -14,5 +14,24 @@ namespace GameStoredTwo.Data
         [Required]
         public string ConsoleName { get; set; }
         public string ConsoleDescription { get; set; }
+        public virtual List<Game> Games { get; set; } = new List<Game>();
+        public List<ConsoleListOfGames> GamesOnConsole
+        {
+            get
+            {
+                List<ConsoleListOfGames> newList = List<ConsoleListOfGames>();
+                foreach (var game in Games)
+                {
+                    var gameOnConsole = new ConsoleListOfGames()
+                    {
+                        GameID = game.GameID,
+                        GameTitle = game.GameTitle
+                    };
+                    newList.Add(gameOnConsole);
+                }
+                return newList;
+            }
+            set { }
+        }
     }
 }

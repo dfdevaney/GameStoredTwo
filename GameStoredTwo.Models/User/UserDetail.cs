@@ -8,6 +8,11 @@ namespace GameStoredTwo.Models.User
 {
     public class UserDetail
     {
-
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public List<FavoriteGames> FavoriteGames { get; set; }
+        public List<Wishlist> Wishlists { get; set; }
     }
 }
