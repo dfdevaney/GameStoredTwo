@@ -58,6 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Console.cs" />
+    <Compile Include="Developer.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202011241854110_next.cs" />
     <Compile Include="Migrations\202011241854110_next.designer.cs">
@@ -73,6 +75,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publisher.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
