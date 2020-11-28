@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameStoredTwo.Models.Console
+namespace GameStoredTwo.Models.Game
 {
-    public class ConsoleListOfGames
+    public class GameListOfDevelopers
     {
         public int GameID { get; set; }
         public string GameTitle { get; set; }

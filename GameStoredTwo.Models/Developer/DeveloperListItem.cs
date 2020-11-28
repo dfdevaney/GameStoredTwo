@@ -8,6 +8,7 @@ namespace GameStoredTwo.Models.Developer
 {
     public class DeveloperListItem
     {
-
+        public int DeveloperID { get; set; }
+        public string DeveloperName { get; set; }
     }
 }

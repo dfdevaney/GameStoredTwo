@@ -75,7 +75,7 @@ namespace GameStored.WebMVC.Controllers
 
             if (model.ConsoleID != consoleID)
             {
-                ModelState.AddModelError("", "ID Mismatch");
+                ModelState.AddModelError("", "ConsoleID Mismatch");
                 return View(model);
             }
 

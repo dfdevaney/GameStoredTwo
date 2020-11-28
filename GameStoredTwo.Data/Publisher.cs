@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GameStoredTwo.Models.Game;
+using GameStoredTwo.Models.Publisher;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,14 +16,14 @@ namespace GameStoredTwo.Data
         [Required]
         public string PublisherName { get; set; }
         public virtual List<Game> Games { get; set; } = new List<Game>();
-        public List<PublisherListOfGames> PublisherGames
+        public List<GameListOfPublishers> PublisherGames
         {
             get
             {
-                List<PublisherListOfGames> newList = List<PublisherListOfGames>();
+                List<GameListOfPublishers> newList = List<GameListOfPublishers>();
                 foreach (var game in Games)
                 {
-                    var gameByPublisher = new PublisherListOfGames()
+                    var gameByPublisher = new GameListOfPublishers()
                     {
                         GameID = game.GameID,
                         GameTitle = game.GameTitle

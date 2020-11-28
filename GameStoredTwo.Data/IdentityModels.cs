@@ -34,6 +34,9 @@ namespace GameStoredTwo.Data
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Console> Consoles { get; set; }
+        public DbSet<Developer> Developers { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Game> Games { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

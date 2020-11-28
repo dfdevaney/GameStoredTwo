@@ -8,6 +8,7 @@ namespace GameStoredTwo.Models.Publisher
 {
     public class PublisherEdit
     {
-
+        public int PublisherID { get; set; }
+        public string PublisherName { get; set; }
     }
 }
