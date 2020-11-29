@@ -8,6 +8,12 @@ namespace GameStoredTwo.Models.Game
 {
     public class GameEdit
     {
-
+        public int GameID { get; set; }
+        public string GameTitle { get; set; }
+        public string Description { get; set; }
+        public string ReleaseDate { get; set; }
+        public int? ConsoleID { get; set; }
+        public int? PublisherID { get; set; }
+        public int? DeveloperID { get; set; }
     }
 }
