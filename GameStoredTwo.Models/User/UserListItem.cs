@@ -8,6 +8,7 @@ namespace GameStoredTwo.Models.User
 {
     public class UserListItem
     {
-
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

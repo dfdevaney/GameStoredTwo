@@ -48,6 +48,7 @@ namespace GameStored.WebMVC.Controllers
             ModelState.AddModelError("", "Console could not be Created.");
             return View(model);
         }
+
         public ActionResult Details(int consoleID)
         {
             var svc = CreateConsoleService();
@@ -109,6 +110,5 @@ namespace GameStored.WebMVC.Controllers
             TempData["SaveResult"] = "The Console was Deleted.";
             return RedirectToAction("Inex");
         }
-
     }
 }
