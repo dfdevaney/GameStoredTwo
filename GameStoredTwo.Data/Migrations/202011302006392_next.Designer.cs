@@ -7,13 +7,13 @@ namespace GameStoredTwo.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class next1 : IMigrationMetadata
+    public sealed partial class next : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(next1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(next));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011241911052_next1"; }
+            get { return "202011302006392_next"; }
         }
         
         string IMigrationMetadata.Source

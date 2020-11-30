@@ -61,17 +61,29 @@
     <Compile Include="Developer.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202011241854110_next.cs" />
-    <Compile Include="Migrations\202011241854110_next.designer.cs">
-      <DependentUpon>202011241854110_next.cs</DependentUpon>
+    <Compile Include="Migrations\202011301944130_first.cs" />
+    <Compile Include="Migrations\202011301944130_first.designer.cs">
+      <DependentUpon>202011301944130_first.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011241911052_next1.cs" />
-    <Compile Include="Migrations\202011241911052_next1.designer.cs">
-      <DependentUpon>202011241911052_next1.cs</DependentUpon>
+    <Compile Include="Migrations\202011302006392_next.cs" />
+    <Compile Include="Migrations\202011302006392_next.designer.cs">
+      <DependentUpon>202011302006392_next.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202011241919533_next2.cs" />
-    <Compile Include="Migrations\202011241919533_next2.designer.cs">
-      <DependentUpon>202011241919533_next2.cs</DependentUpon>
+    <Compile Include="Migrations\202011302019132_next1.cs" />
+    <Compile Include="Migrations\202011302019132_next1.designer.cs">
+      <DependentUpon>202011302019132_next1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011302128456_next2.cs" />
+    <Compile Include="Migrations\202011302128456_next2.designer.cs">
+      <DependentUpon>202011302128456_next2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011302134145_next3.cs" />
+    <Compile Include="Migrations\202011302134145_next3.designer.cs">
+      <DependentUpon>202011302134145_next3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011302208594_next4.cs" />
+    <Compile Include="Migrations\202011302208594_next4.designer.cs">
+      <DependentUpon>202011302208594_next4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,21 +95,30 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202011241854110_next.resx">
-      <DependentUpon>202011241854110_next.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011241911052_next1.resx">
-      <DependentUpon>202011241911052_next1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011241919533_next2.resx">
-      <DependentUpon>202011241919533_next2.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\GameStoredTwo.Models\GameStoredTwo.Models.csproj">
       <Project>{36d2a7cf-eed0-4abe-94d3-77b9c9051cd1}</Project>
       <Name>GameStoredTwo.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202011301944130_first.resx">
+      <DependentUpon>202011301944130_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011302006392_next.resx">
+      <DependentUpon>202011302006392_next.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011302019132_next1.resx">
+      <DependentUpon>202011302019132_next1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011302128456_next2.resx">
+      <DependentUpon>202011302128456_next2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011302134145_next3.resx">
+      <DependentUpon>202011302134145_next3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011302208594_next4.resx">
+      <DependentUpon>202011302208594_next4.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

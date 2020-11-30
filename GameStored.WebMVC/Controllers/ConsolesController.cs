@@ -14,7 +14,6 @@ namespace GameStored.WebMVC.Controllers
     {
         private ConsoleService CreateConsoleService()
         {
-            //var userID = Guid.Parse(User.Identity.GetUserId());
             var service = new ConsoleService();
             return service;
         }
@@ -51,6 +50,9 @@ namespace GameStored.WebMVC.Controllers
 
         public ActionResult Details(int consoleID)
         {
+            //ConsoleService consoleService = CreateConsoleService();
+            //var entity = consoleService.GetConsoleByID(consoleID);
+            //return View(entity);
             var svc = CreateConsoleService();
             var model = svc.GetConsoleByID(consoleID);
             return View(model);
@@ -62,6 +64,7 @@ namespace GameStored.WebMVC.Controllers
             var detail = service.GetConsoleByID(consoleID);
             var model = new ConsoleEdit
             {
+                ConsoleID = detail.ConsoleID,
                 ConsoleName = detail.ConsoleName,
                 ConsoleDescription = detail.ConsoleDescription
             };

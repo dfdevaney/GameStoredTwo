@@ -102,6 +102,7 @@ namespace GameStored.WebMVC.Controllers
             var service = CreateGameService();
             service.DeleteGame(gameID);
             TempData["SaveResult"] = "The Game was Deleted.";
+
             return RedirectToAction("Inex");
         }
     }

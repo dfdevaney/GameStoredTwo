@@ -38,6 +38,15 @@ namespace GameStoredTwo.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+
+                //var query = ctx.Consoles.Select
+                //            (e => new ConsoleListItem
+                //            {
+                //                ConsoleID = e.ConsoleID,
+                //                ConsoleName = e.ConsoleName
+                //            }
+                //             );
+
                 var query =
                     from console in ctx.Consoles
                     select new ConsoleListItem
@@ -45,6 +54,7 @@ namespace GameStoredTwo.Services
                         ConsoleID = console.ConsoleID,
                         ConsoleName = console.ConsoleName
                     };
+
                 return query.ToArray();
             }
         }
