@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameStoredTwo.Models.Game;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace GameStoredTwo.Data
         public string City { get; set; }
         [Required]
         public string State { get; set; }
-        public virtual List<Games> AllGames { get; set; } = new List<Games>();
+        public virtual List<Game> AllGames { get; set; } = new List<Game>();
 
         public virtual List<FavoriteGames> FavoriteGames
         {
@@ -51,7 +52,7 @@ namespace GameStoredTwo.Data
                 {
                     if (games.AddToWishlist == true)
                     {
-                        var gameDetails = new Wishlists
+                        var gameDetails = new Wishlist
                         {
                             GameID = games.GameID,
                             GameTitle = games.GameTitle

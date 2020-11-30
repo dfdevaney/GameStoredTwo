@@ -30,7 +30,7 @@ namespace GameStored.WebMVC.Controllers
             return View();
         }
 
-        // Post
+        // Post: Publisher
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PublisherCreate model)

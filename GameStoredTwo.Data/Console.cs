@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameStoredTwo.Models.Console;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace GameStoredTwo.Data
         {
             get
             {
-                List<ConsoleListOfGames> newList = List<ConsoleListOfGames>();
+                List<ConsoleListOfGames> newList = new List<ConsoleListOfGames>();
                 foreach (var game in Games)
                 {
                     var gameOnConsole = new ConsoleListOfGames()

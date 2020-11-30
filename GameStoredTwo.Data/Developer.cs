@@ -20,7 +20,7 @@ namespace GameStoredTwo.Data
         {
             get
             {
-                List<GameListOfDevelopers> newList = List<GameListOfDevelopers>();
+                List<GameListOfDevelopers> newList = new List<GameListOfDevelopers>();
                 foreach (var game in Games)
                 {
                     var gameByDeveloper = new GameListOfDevelopers()
