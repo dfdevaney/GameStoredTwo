@@ -46,17 +46,17 @@ namespace GameStored.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Details(int publisherID)
+        public ActionResult Details(int id)
         {
             var svc = CreatePublisherService();
-            var model = svc.GetPublisherByID(publisherID);
+            var model = svc.GetPublisherByID(id);
             return View(model);
         }
 
-        public ActionResult Edit(int publisherID)
+        public ActionResult Edit(int id)
         {
             var service = CreatePublisherService();
-            var detail = service.GetPublisherByID(publisherID);
+            var detail = service.GetPublisherByID(id);
             var model = new PublisherEdit
             {
                 PublisherID = detail.PublisherID,
@@ -67,11 +67,11 @@ namespace GameStored.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int publisherID, PublisherEdit model)
+        public ActionResult Edit(int id, PublisherEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.PublisherID != publisherID)
+            if (model.PublisherID != id)
             {
                 ModelState.AddModelError("", "PublisherID Mismatch");
                 return View(model);
@@ -88,20 +88,20 @@ namespace GameStored.WebMVC.Controllers
         }
 
         [ActionName("Delete")]
-        public ActionResult Delete(int publisherID)
+        public ActionResult Delete(int id)
         {
             var svc = CreatePublisherService();
-            var model = svc.GetPublisherByID(publisherID);
+            var model = svc.GetPublisherByID(id);
             return View(model);
         }
 
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeletePublisher(int publisherID)
+        public ActionResult DeletePublisher(int id)
         {
             var service = CreatePublisherService();
-            service.DeletePublisher(publisherID);
+            service.DeletePublisher(id);
             TempData["SaveResult"] = "The Publisher was Deleted.";
             return RedirectToAction("Inex");
         }

@@ -1,4 +1,4 @@
-﻿@model GameStoredTwo.Models.Console.ConsoleListItem
+﻿@model GameStoredTwo.Models.Console.ConsoleDetail
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>ConsoleListItem</h4>
+    <h4>ConsoleDetail</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -26,11 +26,17 @@
             @Html.DisplayFor(model => model.ConsoleName)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.ConsoleDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConsoleDescription)
+        </dd>
+
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ConsoleID }) |
-    @Html.ActionLink("Details", "Details", new { id = Model.ConsoleID }) |
-    @Html.ActionLink("Delete", "Delete", new { id = Model.ConsoleID }) 
     @Html.ActionLink("Back to List", "Index")
 </p>

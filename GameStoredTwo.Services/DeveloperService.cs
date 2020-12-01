@@ -40,11 +40,11 @@ namespace GameStoredTwo.Services
             }
         }
 
-        public DeveloperDetail GetDeveloperByID(int developerID)
+        public DeveloperDetail GetDeveloperByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Developers.Single(e => e.DeveloperID == developerID);
+                var entity = ctx.Developers.Single(e => e.DeveloperID == id);
                 return new DeveloperDetail
                 {
                     DeveloperID = entity.DeveloperID,
@@ -83,11 +83,11 @@ namespace GameStoredTwo.Services
             }
         }
 
-        public bool DeleteDeveloper(int developerID)
+        public bool DeleteDeveloper(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Developers.Single(e => e.DeveloperID == developerID);
+                var entity = ctx.Developers.Single(e => e.DeveloperID == id);
                 ctx.Developers.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

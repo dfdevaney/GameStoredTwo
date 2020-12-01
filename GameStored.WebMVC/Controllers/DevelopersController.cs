@@ -46,17 +46,17 @@ namespace GameStored.WebMVC.Controllers
                 return View(model);
             }
 
-            public ActionResult Details(int developerID)
+            public ActionResult Details(int id)
             {
                 var svc = CreateDeveloperService();
-                var model = svc.GetDeveloperByID(developerID);
+                var model = svc.GetDeveloperByID(id);
                 return View(model);
             }
 
-            public ActionResult Edit(int developerID)
+            public ActionResult Edit(int id)
             {
                 var service = CreateDeveloperService();
-                var detail = service.GetDeveloperByID(developerID);
+                var detail = service.GetDeveloperByID(id);
                 var model = new DeveloperEdit
                 {
                     DeveloperID = detail.DeveloperID,
@@ -67,11 +67,11 @@ namespace GameStored.WebMVC.Controllers
 
             [HttpPost]
             [ValidateAntiForgeryToken]
-            public ActionResult Edit(int developerID, DeveloperEdit model)
+            public ActionResult Edit(int id, DeveloperEdit model)
             {
                 if (!ModelState.IsValid) return View(model);
 
-                if(model.DeveloperID != developerID)
+                if(model.DeveloperID != id)
                 {
                     ModelState.AddModelError("", "DeveoperID Mismatch");
                     return View(model);
@@ -88,20 +88,20 @@ namespace GameStored.WebMVC.Controllers
             }
 
             [ActionName("Delete")]
-            public ActionResult Delete(int developerID)
+            public ActionResult Delete(int id)
             {
                 var svc = CreateDeveloperService();
-                var model = svc.GetDeveloperByID(developerID);
+                var model = svc.GetDeveloperByID(id);
                 return View(model);
             }
 
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteDeveloper(int developerID)
+        public ActionResult DeleteDeveloper(int id)
         {
             var service = CreateDeveloperService();
-            service.DeleteDeveloper(developerID);
+            service.DeleteDeveloper(id);
             TempData["SaveResult"] = "The Developer was Deleted.";
             return RedirectToAction("Inex");
         }

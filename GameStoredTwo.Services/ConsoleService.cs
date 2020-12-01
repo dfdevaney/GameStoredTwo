@@ -59,11 +59,11 @@ namespace GameStoredTwo.Services
             }
         }
 
-        public ConsoleDetail GetConsoleByID(int consoleID)
+        public ConsoleDetail GetConsoleByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Consoles.Single(e => e.ConsoleID == consoleID);
+                var entity = ctx.Consoles.Single(e => e.ConsoleID == id);
                 return new ConsoleDetail
                 {
                     ConsoleID = entity.ConsoleID,
@@ -105,11 +105,11 @@ namespace GameStoredTwo.Services
             }
         }
 
-        public bool DeleteConsole(int consoleID)
+        public bool DeleteConsole(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Consoles.Single(e => e.ConsoleID == consoleID);
+                var entity = ctx.Consoles.Single(e => e.ConsoleID == id);
                 ctx.Consoles.Remove(entity);
 
                 return ctx.SaveChanges() == 1;

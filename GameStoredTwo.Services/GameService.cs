@@ -25,7 +25,6 @@ namespace GameStoredTwo.Services
         {
             var entity = new Game()
             {
-                UserID = _userId,
                 GameTitle = model.GameTitle,
                 ConsoleID = model.ConsoleID,
                 DeveloperID = model.DeveloperID,
@@ -56,11 +55,11 @@ namespace GameStoredTwo.Services
             }
         }
 
-        public GameDetail GetGameByID(int gameID)
+        public GameDetail GetGameByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var games = ctx.Games.Single(e => e.GameID == gameID);
+                var games = ctx.Games.Single(e => e.GameID == id);
                 return new GameDetail
                 {
                     GameID = games.GameID,
@@ -87,11 +86,11 @@ namespace GameStoredTwo.Services
             }
         }
 
-        public List<GameDetail> GetGameByConsole(int consoleID)
+        public List<GameDetail> GetGameByConsole(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var games = ctx.Games.Where(e => e.ConsoleID == consoleID).ToList();
+                var games = ctx.Games.Where(e => e.ConsoleID == id).ToList();
                 foreach (var game in games)
                 {
                     var foundGame = new GameDetail
@@ -105,11 +104,11 @@ namespace GameStoredTwo.Services
             }
         }
 
-        public List<GameDetail> GetGameByDeveloper(int publisherID)
+        public List<GameDetail> GetGameByDeveloper(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var games = ctx.Games.Where(e => e.DeveloperID == publisherID).ToList();
+                var games = ctx.Games.Where(e => e.DeveloperID == id).ToList();
                 foreach (var game in games)
                 {
                     var foundGame = new GameDetail
@@ -123,11 +122,11 @@ namespace GameStoredTwo.Services
             }
         }
 
-        public List<GameDetail> GetGameByPublisher(int publisherID)
+        public List<GameDetail> GetGameByPublisher(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var games = ctx.Games.Where(e => e.PublisherID == publisherID).ToList();
+                var games = ctx.Games.Where(e => e.PublisherID == id).ToList();
                 foreach (var game in games)
                 {
                     var foundGame = new GameDetail
@@ -146,8 +145,11 @@ namespace GameStoredTwo.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var game = ctx.Games.Single(e => e.GameID == model.GameID);
-                {                    
+                {
                     game.GameTitle = model.GameTitle;
+                    game.Description = model.Description;
+                    game.ReleaseDate = model.ReleaseDate;
+                    game.ConsoleID = model.ConsoleID;
                     game.DeveloperID = model.DeveloperID;
                     game.PublisherID = model.PublisherID;
                     game.AddToFavoriteGames = model.AddToFavoriteGames;
@@ -157,11 +159,11 @@ namespace GameStoredTwo.Services
             }
         }
 
-        public bool DeleteGame(int gameID)
+        public bool DeleteGame(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var game = ctx.Games.Single(e => e.GameID == gameID);
+                var game = ctx.Games.Single(e => e.GameID == id);
                 ctx.Games.Remove(game);
                 return ctx.SaveChanges() == 1;
             }

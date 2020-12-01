@@ -93,6 +93,30 @@
     <Compile Include="Migrations\202012011617072_next41.designer.cs">
       <DependentUpon>202012011617072_next41.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202012011633399_next5.cs" />
+    <Compile Include="Migrations\202012011633399_next5.designer.cs">
+      <DependentUpon>202012011633399_next5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012011639244_next51.cs" />
+    <Compile Include="Migrations\202012011639244_next51.designer.cs">
+      <DependentUpon>202012011639244_next51.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012011959297_next52.cs" />
+    <Compile Include="Migrations\202012011959297_next52.designer.cs">
+      <DependentUpon>202012011959297_next52.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012012003025_next6.cs" />
+    <Compile Include="Migrations\202012012003025_next6.designer.cs">
+      <DependentUpon>202012012003025_next6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012012021491_next61.cs" />
+    <Compile Include="Migrations\202012012021491_next61.designer.cs">
+      <DependentUpon>202012012021491_next61.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012012024050_next7.cs" />
+    <Compile Include="Migrations\202012012024050_next7.designer.cs">
+      <DependentUpon>202012012024050_next7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publisher.cs" />
@@ -132,6 +156,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012011617072_next41.resx">
       <DependentUpon>202012011617072_next41.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012011633399_next5.resx">
+      <DependentUpon>202012011633399_next5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012011639244_next51.resx">
+      <DependentUpon>202012011639244_next51.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012011959297_next52.resx">
+      <DependentUpon>202012011959297_next52.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012012003025_next6.resx">
+      <DependentUpon>202012012003025_next6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012012021491_next61.resx">
+      <DependentUpon>202012012021491_next61.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012012024050_next7.resx">
+      <DependentUpon>202012012024050_next7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

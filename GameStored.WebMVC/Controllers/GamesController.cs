@@ -48,26 +48,25 @@ namespace GameStored.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Details(int gameID)
+        public ActionResult Details(int id)
         {
             var svc = CreateGameService();
-            var model = svc.GetGameByID(gameID);
+            var model = svc.GetGameByID(id);
             return View(model);
         }
 
-        public ActionResult Edit(int gameID)
+        public ActionResult Edit(int id)
         {
             var service = CreateGameService();
-            var detail = service.GetGameByID(gameID);
+            var detail = service.GetGameByID(id);
             var model = new GameEdit
             {
-                GameID = detail.GameID,
                 GameTitle = detail.GameTitle,
                 Description = detail.Description,
                 ReleaseDate = detail.ReleaseDate,
+                ConsoleID = detail.ConsoleID,
                 DeveloperID = detail.DeveloperID,
                 PublisherID = detail.PublisherID,
-                ConsoleID = detail.ConsoleID,
                 AddToFavoriteGames = detail.AddToFavoriteGames,
                 AddToWishlist = detail.AddToWishlist
             };
@@ -76,11 +75,11 @@ namespace GameStored.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int gameID, GameEdit model)
+        public ActionResult Edit(int id, GameEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.GameID != gameID)
+            if (model.GameID != id)
             {
                 ModelState.AddModelError("", "GameID Mismatch");
                 return View(model);
@@ -97,20 +96,20 @@ namespace GameStored.WebMVC.Controllers
         }
 
         [ActionName("Delete")]
-        public ActionResult Delete(int gameID)
+        public ActionResult Delete(int id)
         {
             var svc = CreateGameService();
-            var model = svc.GetGameByID(gameID);
+            var model = svc.GetGameByID(id);
             return View(model);
         }
 
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteGame(int gameID)
+        public ActionResult DeleteGame(int id)
         {
             var service = CreateGameService();
-            service.DeleteGame(gameID);
+            service.DeleteGame(id);
             TempData["SaveResult"] = "The Game was Deleted.";
 
             return RedirectToAction("Inex");

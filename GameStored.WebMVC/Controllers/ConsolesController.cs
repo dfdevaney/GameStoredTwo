@@ -48,20 +48,20 @@ namespace GameStored.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult Details(int consoleID)
+        public ActionResult Details(int id)
         {
             //ConsoleService consoleService = CreateConsoleService();
             //var entity = consoleService.GetConsoleByID(consoleID);
             //return View(entity);
             var svc = CreateConsoleService();
-            var model = svc.GetConsoleByID(consoleID);
+            var model = svc.GetConsoleByID(id);
             return View(model);
         }
 
-        public ActionResult Edit(int consoleID)
+        public ActionResult Edit(int id)
         {
             var service = CreateConsoleService();
-            var detail = service.GetConsoleByID(consoleID);
+            var detail = service.GetConsoleByID(id);
             var model = new ConsoleEdit
             {
                 ConsoleID = detail.ConsoleID,
@@ -73,11 +73,11 @@ namespace GameStored.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int consoleID, ConsoleEdit model)
+        public ActionResult Edit(int id, ConsoleEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.ConsoleID != consoleID)
+            if (model.ConsoleID != id)
             {
                 ModelState.AddModelError("", "ConsoleID Mismatch");
                 return View(model);
@@ -96,20 +96,20 @@ namespace GameStored.WebMVC.Controllers
         }
 
         [ActionName("Delete")]
-        public ActionResult Delete(int consoleID)
+        public ActionResult Delete(int id)
         {
             var svc = CreateConsoleService();
-            var model = svc.GetConsoleByID(consoleID);
+            var model = svc.GetConsoleByID(id);
             return View(model);
         }
 
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConsole(int consoleID)
+        public ActionResult DeleteConsole(int id)
         {
             var service = CreateConsoleService();
-            service.DeleteConsole(consoleID);
+            service.DeleteConsole(id);
             TempData["SaveResult"] = "The Console was Deleted.";
             return RedirectToAction("Inex");
         }

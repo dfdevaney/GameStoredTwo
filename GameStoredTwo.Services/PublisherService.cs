@@ -40,11 +40,11 @@ namespace GameStoredTwo.Services
             }
         }
 
-        public PublisherDetail GetPublisherByID(int publisherID)
+        public PublisherDetail GetPublisherByID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Publishers.Single(e => e.PublisherID == publisherID);
+                var entity = ctx.Publishers.Single(e => e.PublisherID == id);
                 return new PublisherDetail
                 {
                     PublisherID = entity.PublisherID,
@@ -83,11 +83,11 @@ namespace GameStoredTwo.Services
             }
         }
 
-        public bool DeletePublisher(int publisherID)
+        public bool DeletePublisher(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Publishers.Single(e => e.PublisherID == publisherID);
+                var entity = ctx.Publishers.Single(e => e.PublisherID == id);
                 ctx.Publishers.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }

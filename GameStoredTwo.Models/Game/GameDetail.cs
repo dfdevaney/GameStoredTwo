@@ -8,7 +8,6 @@ namespace GameStoredTwo.Models.Game
 {
     public class GameDetail
     {
-        public Guid? UserID { get; set; }
         public int GameID { get; set; }
         public string GameTitle { get; set; }
         public string Description { get; set; }
