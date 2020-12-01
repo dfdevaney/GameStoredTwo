@@ -59,6 +59,7 @@ namespace GameStored.WebMVC.Controllers
             var detail = service.GetPublisherByID(publisherID);
             var model = new PublisherEdit
             {
+                PublisherID = detail.PublisherID,
                 PublisherName = detail.PublisherName
             };
             return View(model);

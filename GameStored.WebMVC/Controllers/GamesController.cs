@@ -1,5 +1,6 @@
 ﻿using GameStoredTwo.Models.Game;
 using GameStoredTwo.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,8 @@ namespace GameStored.WebMVC.Controllers
     {
         private GameService CreateGameService()
         {
-            var service = new GameService();
+            var userID = Guid.Parse(User.Identity.GetUserId());
+            var service = new GameService(userID);
             return service;
         }
 
@@ -59,7 +61,15 @@ namespace GameStored.WebMVC.Controllers
             var detail = service.GetGameByID(gameID);
             var model = new GameEdit
             {
-                GameTitle = detail.GameTitle
+                GameID = detail.GameID,
+                GameTitle = detail.GameTitle,
+                Description = detail.Description,
+                ReleaseDate = detail.ReleaseDate,
+                DeveloperID = detail.DeveloperID,
+                PublisherID = detail.PublisherID,
+                ConsoleID = detail.ConsoleID,
+                AddToFavoriteGames = detail.AddToFavoriteGames,
+                AddToWishlist = detail.AddToWishlist
             };
             return View(model);
         }

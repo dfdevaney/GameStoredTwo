@@ -10,12 +10,22 @@ namespace GameStoredTwo.Services
 {
     public class GameService
     {
+
+        private readonly Guid _userId;
+
+        public GameService(Guid userId)
+        {
+            _userId = userId;
+        }
+
+
         readonly List<GameDetail> searchResults = new List<GameDetail>();
 
         public bool CreateGame (GameCreate model)
         {
             var entity = new Game()
             {
+                UserID = _userId,
                 GameTitle = model.GameTitle,
                 ConsoleID = model.ConsoleID,
                 DeveloperID = model.DeveloperID,

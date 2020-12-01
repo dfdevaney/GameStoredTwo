@@ -59,6 +59,7 @@ namespace GameStored.WebMVC.Controllers
                 var detail = service.GetDeveloperByID(developerID);
                 var model = new DeveloperEdit
                 {
+                    DeveloperID = detail.DeveloperID,
                     DeveloperName = detail.DeveloperName
                 };
                 return View(model);

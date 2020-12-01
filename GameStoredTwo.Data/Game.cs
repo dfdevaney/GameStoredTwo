@@ -14,6 +14,9 @@ namespace GameStoredTwo.Data
         public int GameID { get; set; }
         [Required]
         public string GameTitle { get; set; }
+        [ForeignKey(nameof(User))]
+        public Guid? UserID { get; set; }
+        public virtual User User { get; set; }
         [ForeignKey(nameof(Console))]
         public int? ConsoleID { get; set; }
         public virtual Console Console { get; set; }

@@ -62,10 +62,13 @@ namespace GameStored.WebMVC.Controllers
             var detail = service.GetUserByID(userID);
             var model = new UserEdit
             {
+                UserID = detail.UserID,
                 FirstName = detail.FirstName,
                 LastName = detail.LastName,
                 City = detail.City,
-                State = detail.State
+                State = detail.State,
+                FavoriteGames = detail.FavoriteGames,
+                Wishlists = detail.Wishlists
             };
             return View(model);
         }

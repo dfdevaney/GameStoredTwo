@@ -8,6 +8,7 @@ namespace GameStoredTwo.Models.Game
 {
     public class GameDetail
     {
+        public Guid? UserID { get; set; }
         public int GameID { get; set; }
         public string GameTitle { get; set; }
         public string Description { get; set; }
@@ -18,5 +19,7 @@ namespace GameStoredTwo.Models.Game
         public string DeveloperName { get; set; }
         public int? PublisherID { get; set; }
         public string PublisherName { get; set; }
+        public bool AddToFavoriteGames { get; set; }
+        public bool AddToWishlist { get; set; }
     }
 }
