@@ -23,6 +23,7 @@
                     {
                         GameID = c.Int(nullable: false, identity: true),
                         GameTitle = c.String(nullable: false),
+                        UserID = c.Guid(),
                         ConsoleID = c.Int(),
                         PublisherID = c.Int(),
                         DeveloperID = c.Int(),
@@ -30,17 +31,16 @@
                         ReleaseDate = c.String(),
                         AddToFavoriteGames = c.Boolean(nullable: false),
                         AddToWishlist = c.Boolean(nullable: false),
-                        User_UserID = c.Guid(),
                     })
                 .PrimaryKey(t => t.GameID)
                 .ForeignKey("dbo.Console", t => t.ConsoleID)
                 .ForeignKey("dbo.Developer", t => t.DeveloperID)
                 .ForeignKey("dbo.Publisher", t => t.PublisherID)
-                .ForeignKey("dbo.User", t => t.User_UserID)
+                .ForeignKey("dbo.User", t => t.UserID)
+                .Index(t => t.UserID)
                 .Index(t => t.ConsoleID)
                 .Index(t => t.PublisherID)
-                .Index(t => t.DeveloperID)
-                .Index(t => t.User_UserID);
+                .Index(t => t.DeveloperID);
             
             CreateTable(
                 "dbo.Developer",
@@ -85,42 +85,6 @@
                 .Index(t => t.Publisher_PublisherID);
             
             CreateTable(
-                "dbo.ConsoleListOfGames",
-                c => new
-                    {
-                        GameID = c.Int(nullable: false, identity: true),
-                        GameTitle = c.String(),
-                        Console_ConsoleID = c.Int(),
-                    })
-                .PrimaryKey(t => t.GameID)
-                .ForeignKey("dbo.Console", t => t.Console_ConsoleID)
-                .Index(t => t.Console_ConsoleID);
-            
-            CreateTable(
-                "dbo.IdentityRole",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.IdentityUserRole",
-                c => new
-                    {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(),
-                        IdentityRole_Id = c.String(maxLength: 128),
-                        ApplicationUser_Id = c.String(maxLength: 128),
-                    })
-                .PrimaryKey(t => t.UserId)
-                .ForeignKey("dbo.IdentityRole", t => t.IdentityRole_Id)
-                .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
-                .Index(t => t.IdentityRole_Id)
-                .Index(t => t.ApplicationUser_Id);
-            
-            CreateTable(
                 "dbo.User",
                 c => new
                     {
@@ -155,6 +119,42 @@
                 .PrimaryKey(t => t.GameID)
                 .ForeignKey("dbo.User", t => t.User_UserID)
                 .Index(t => t.User_UserID);
+            
+            CreateTable(
+                "dbo.ConsoleListOfGames",
+                c => new
+                    {
+                        GameID = c.Int(nullable: false, identity: true),
+                        GameTitle = c.String(),
+                        Console_ConsoleID = c.Int(),
+                    })
+                .PrimaryKey(t => t.GameID)
+                .ForeignKey("dbo.Console", t => t.Console_ConsoleID)
+                .Index(t => t.Console_ConsoleID);
+            
+            CreateTable(
+                "dbo.IdentityRole",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.IdentityUserRole",
+                c => new
+                    {
+                        UserId = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(),
+                        IdentityRole_Id = c.String(maxLength: 128),
+                        ApplicationUser_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.UserId)
+                .ForeignKey("dbo.IdentityRole", t => t.IdentityRole_Id)
+                .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
+                .Index(t => t.IdentityRole_Id)
+                .Index(t => t.ApplicationUser_Id);
             
             CreateTable(
                 "dbo.ApplicationUser",
@@ -209,11 +209,11 @@
             DropForeignKey("dbo.IdentityUserRole", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
-            DropForeignKey("dbo.Wishlist", "User_UserID", "dbo.User");
-            DropForeignKey("dbo.FavoriteGames", "User_UserID", "dbo.User");
-            DropForeignKey("dbo.Game", "User_UserID", "dbo.User");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
             DropForeignKey("dbo.ConsoleListOfGames", "Console_ConsoleID", "dbo.Console");
+            DropForeignKey("dbo.Game", "UserID", "dbo.User");
+            DropForeignKey("dbo.Wishlist", "User_UserID", "dbo.User");
+            DropForeignKey("dbo.FavoriteGames", "User_UserID", "dbo.User");
             DropForeignKey("dbo.Game", "PublisherID", "dbo.Publisher");
             DropForeignKey("dbo.GameListOfPublishers", "Publisher_PublisherID", "dbo.Publisher");
             DropForeignKey("dbo.Game", "DeveloperID", "dbo.Developer");
@@ -221,26 +221,26 @@
             DropForeignKey("dbo.Game", "ConsoleID", "dbo.Console");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
-            DropIndex("dbo.Wishlist", new[] { "User_UserID" });
-            DropIndex("dbo.FavoriteGames", new[] { "User_UserID" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
             DropIndex("dbo.ConsoleListOfGames", new[] { "Console_ConsoleID" });
+            DropIndex("dbo.Wishlist", new[] { "User_UserID" });
+            DropIndex("dbo.FavoriteGames", new[] { "User_UserID" });
             DropIndex("dbo.GameListOfPublishers", new[] { "Publisher_PublisherID" });
             DropIndex("dbo.GameListOfDevelopers", new[] { "Developer_DeveloperID" });
-            DropIndex("dbo.Game", new[] { "User_UserID" });
             DropIndex("dbo.Game", new[] { "DeveloperID" });
             DropIndex("dbo.Game", new[] { "PublisherID" });
             DropIndex("dbo.Game", new[] { "ConsoleID" });
+            DropIndex("dbo.Game", new[] { "UserID" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
-            DropTable("dbo.Wishlist");
-            DropTable("dbo.FavoriteGames");
-            DropTable("dbo.User");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
             DropTable("dbo.ConsoleListOfGames");
+            DropTable("dbo.Wishlist");
+            DropTable("dbo.FavoriteGames");
+            DropTable("dbo.User");
             DropTable("dbo.GameListOfPublishers");
             DropTable("dbo.Publisher");
             DropTable("dbo.GameListOfDevelopers");

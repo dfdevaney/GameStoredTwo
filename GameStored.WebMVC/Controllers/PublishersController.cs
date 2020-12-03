@@ -103,7 +103,7 @@ namespace GameStored.WebMVC.Controllers
             var service = CreatePublisherService();
             service.DeletePublisher(id);
             TempData["SaveResult"] = "The Publisher was Deleted.";
-            return RedirectToAction("Inex");
+            return RedirectToAction("Index");
         }
     }
 }

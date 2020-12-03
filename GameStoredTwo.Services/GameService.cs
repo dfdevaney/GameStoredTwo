@@ -26,13 +26,13 @@ namespace GameStoredTwo.Services
             var entity = new Game()
             {
                 GameTitle = model.GameTitle,
-                ConsoleID = model.ConsoleID,
-                DeveloperID = model.DeveloperID,
-                PublisherID = model.PublisherID,
                 Description = model.Description,
                 ReleaseDate = model.ReleaseDate,
-                AddToFavoriteGames = model.AddToFavoriteGames,
-                AddToWishlist = model.AddToWishlist
+                ConsoleID = model.ConsoleID,
+                PublisherID = model.PublisherID,
+                DeveloperID = model.DeveloperID,
+                //AddToFavoriteGames = model.AddToFavoriteGames,
+                //AddToWishlist = model.AddToWishlist
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -49,7 +49,7 @@ namespace GameStoredTwo.Services
                     select new GameListItem
                     {
                         GameID = game.GameID,
-                        GameTitle = game.GameTitle
+                        GameTitle = game.GameTitle,
                     };
                 return query.ToArray();
             }
@@ -63,7 +63,15 @@ namespace GameStoredTwo.Services
                 return new GameDetail
                 {
                     GameID = games.GameID,
-                    GameTitle = games.GameTitle
+                    GameTitle = games.GameTitle,
+                    Description = games.Description,
+                    ReleaseDate = games.ReleaseDate,
+                    ConsoleID = games.Console.ConsoleID,
+                    ConsoleName = games.Console.ConsoleName,
+                    DeveloperID = games.DeveloperID,
+                    DeveloperName = games.Developer.DeveloperName,
+                    PublisherID = games.PublisherID,
+                    PublisherName = games.Publisher.PublisherName
                 };
             }
         }
@@ -144,16 +152,16 @@ namespace GameStoredTwo.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var game = ctx.Games.Single(e => e.GameID == model.GameID);
+                var entity = ctx.Games.Single(e => e.GameID == model.GameID);
                 {
-                    game.GameTitle = model.GameTitle;
-                    game.Description = model.Description;
-                    game.ReleaseDate = model.ReleaseDate;
-                    game.ConsoleID = model.ConsoleID;
-                    game.DeveloperID = model.DeveloperID;
-                    game.PublisherID = model.PublisherID;
-                    game.AddToFavoriteGames = model.AddToFavoriteGames;
-                    game.AddToWishlist = model.AddToWishlist;
+                    if (model.GameTitle != null) entity.GameTitle = model.GameTitle;
+                    if (model.Description != null) entity.Description = model.Description;
+                    if (model.ReleaseDate != null) entity.ReleaseDate = model.ReleaseDate;
+                    if (model.ConsoleID != null) entity.ConsoleID = model.ConsoleID;
+                    if (model.DeveloperID != null) entity.DeveloperID = model.DeveloperID;
+                    if (model.PublisherID != null) entity.PublisherID = model.PublisherID;
+                    //entity.AddToFavoriteGames = model.AddToFavoriteGames;
+                    //entity.AddToWishlist = model.AddToWishlist;
                 }
                 return ctx.SaveChanges() == 1;
             }
@@ -163,8 +171,8 @@ namespace GameStoredTwo.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var game = ctx.Games.Single(e => e.GameID == id);
-                ctx.Games.Remove(game);
+                var entity = ctx.Games.Single(e => e.GameID == id);
+                ctx.Games.Remove(entity);
                 return ctx.SaveChanges() == 1;
             }
         }

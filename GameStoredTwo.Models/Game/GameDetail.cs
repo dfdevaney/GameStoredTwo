@@ -18,7 +18,7 @@ namespace GameStoredTwo.Models.Game
         public string DeveloperName { get; set; }
         public int? PublisherID { get; set; }
         public string PublisherName { get; set; }
-        public bool AddToFavoriteGames { get; set; }
-        public bool AddToWishlist { get; set; }
+        //public bool AddToFavoriteGames { get; set; }
+        //public bool AddToWishlist { get; set; }
     }
 }

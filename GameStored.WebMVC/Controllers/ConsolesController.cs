@@ -111,7 +111,7 @@ namespace GameStored.WebMVC.Controllers
             var service = CreateConsoleService();
             service.DeleteConsole(id);
             TempData["SaveResult"] = "The Console was Deleted.";
-            return RedirectToAction("Inex");
+            return RedirectToAction("Index");
         }
     }
 }

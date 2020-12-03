@@ -61,14 +61,15 @@ namespace GameStored.WebMVC.Controllers
             var detail = service.GetGameByID(id);
             var model = new GameEdit
             {
+                GameID = detail.GameID,
                 GameTitle = detail.GameTitle,
                 Description = detail.Description,
                 ReleaseDate = detail.ReleaseDate,
                 ConsoleID = detail.ConsoleID,
                 DeveloperID = detail.DeveloperID,
                 PublisherID = detail.PublisherID,
-                AddToFavoriteGames = detail.AddToFavoriteGames,
-                AddToWishlist = detail.AddToWishlist
+                //AddToFavoriteGames = detail.AddToFavoriteGames,
+                //AddToWishlist = detail.AddToWishlist
             };
             return View(model);
         }
@@ -112,7 +113,7 @@ namespace GameStored.WebMVC.Controllers
             service.DeleteGame(id);
             TempData["SaveResult"] = "The Game was Deleted.";
 
-            return RedirectToAction("Inex");
+            return RedirectToAction("Index");
         }
     }
 }

@@ -107,7 +107,7 @@ namespace GameStored.WebMVC.Controllers
             var service = CreateUserService();
             service.DeleteUser(userID);
             TempData["SaveResult"] = "The User was Deleted.";
-            return RedirectToAction("Inex");
+            return RedirectToAction("Index");
         }
     }
 }

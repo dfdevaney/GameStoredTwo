@@ -103,7 +103,7 @@ namespace GameStored.WebMVC.Controllers
             var service = CreateDeveloperService();
             service.DeleteDeveloper(id);
             TempData["SaveResult"] = "The Developer was Deleted.";
-            return RedirectToAction("Inex");
+            return RedirectToAction("Index");
         }
     }
 }
