@@ -32,8 +32,12 @@ namespace GameStoredTwo.Data
         {
             return new ApplicationDbContext();
         }
+#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
         public DbSet<User> Users { get; set; }
-        //public DbSet<Console> Consoles { get; set; }
+        public DbSet<Console> Consoles { get; set; }
+        public DbSet<Developer> Developers { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Game> Games { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

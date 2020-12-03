@@ -169,8 +169,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ConsolesController.cs" />
+    <Compile Include="Controllers\DevelopersController.cs" />
+    <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PublishersController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +195,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\GameStoredWebMVC20201125091853 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -235,6 +241,31 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Consoles\Index.cshtml" />
+    <Content Include="Views\Consoles\Create.cshtml" />
+    <Content Include="Views\Consoles\Details.cshtml" />
+    <Content Include="Views\Consoles\Edit.cshtml" />
+    <Content Include="Views\Consoles\Delete.cshtml" />
+    <Content Include="Views\Developer\Index.cshtml" />
+    <Content Include="Views\Developer\Create.cshtml" />
+    <Content Include="Views\Developer\Details.cshtml" />
+    <Content Include="Views\Developer\Edit.cshtml" />
+    <Content Include="Views\Developer\Delete.cshtml" />
+    <Content Include="Views\Publisher\Index.cshtml" />
+    <Content Include="Views\Publisher\Create.cshtml" />
+    <Content Include="Views\Publisher\Details.cshtml" />
+    <Content Include="Views\Publisher\Edit.cshtml" />
+    <Content Include="Views\Publisher\Delete.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="Views\Games\Create.cshtml" />
+    <Content Include="Views\Games\Details.cshtml" />
+    <Content Include="Views\Games\Edit.cshtml" />
+    <Content Include="Views\Games\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -57,14 +57,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Console.cs" />
+    <Compile Include="Developer.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202012031445365_first.cs" />
+    <Compile Include="Migrations\202012031445365_first.designer.cs">
+      <DependentUpon>202012031445365_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012031537402_first1.cs" />
+    <Compile Include="Migrations\202012031537402_first1.designer.cs">
+      <DependentUpon>202012031537402_first1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publisher.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameStoredTwo.Models\GameStoredTwo.Models.csproj">
+      <Project>{36d2a7cf-eed0-4abe-94d3-77b9c9051cd1}</Project>
+      <Name>GameStoredTwo.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202012031445365_first.resx">
+      <DependentUpon>202012031445365_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012031537402_first1.resx">
+      <DependentUpon>202012031537402_first1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
