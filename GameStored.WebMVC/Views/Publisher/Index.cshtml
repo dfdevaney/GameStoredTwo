@@ -3,21 +3,21 @@
 @{
     ViewBag.Title = "Index";
 }
+<h2 class="bg-info">Game Publishers</h2>
 
-<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Add New Publisher", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
+        <th class="bg-warning col-md-2">
             @Html.DisplayNameFor(model => model.PublisherID)
         </th>
-        <th>
+        <th class="col-md-8 bg-success">
             @Html.DisplayNameFor(model => model.PublisherName)
         </th>
-        <th></th>
+        <th class="col-md-2 bg-danger">Edit Info</th>
     </tr>
 
 @foreach (var item in Model) {

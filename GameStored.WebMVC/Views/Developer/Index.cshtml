@@ -4,36 +4,36 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2 class="bg-info">Game Developers</h2>
 
 <p>
     @Html.ActionLink("Add New Developer", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
+        <th class="bg-warning col-md-2">
             @Html.DisplayNameFor(model => model.DeveloperID)
         </th>
-        <th>
+        <th class="col-md-8 bg-success">
             @Html.DisplayNameFor(model => model.DeveloperName)
         </th>
-        <th></th>
+        <th class="col-md-2 bg-danger">Edit Info</th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeveloperID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeveloperName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DeveloperID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DeveloperID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DeveloperID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.DeveloperID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DeveloperName)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.DeveloperID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.DeveloperID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.DeveloperID })
+    </td>
+</tr>
 }
 
 </table>
