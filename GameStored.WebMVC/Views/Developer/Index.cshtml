@@ -9,31 +9,34 @@
 <p>
     @Html.ActionLink("Add New Developer", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th class="bg-warning col-md-2">
-            @Html.DisplayNameFor(model => model.DeveloperID)
-        </th>
-        <th class="col-md-8 bg-success">
-            @Html.DisplayNameFor(model => model.DeveloperName)
-        </th>
-        <th class="col-md-2 bg-danger">Edit Info</th>
-    </tr>
+<div class="container-fluid">
+    <table class="table">
+        <tr>
+            <th class="bg-warning">
+                @Html.DisplayNameFor(model => model.DeveloperID)
+            </th>
+            <th class="bg-success">
+                @Html.DisplayNameFor(model => model.DeveloperName)
+            </th>
+            <th class="bg-danger">Edit Info</th>
+        </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.DeveloperID)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DeveloperName)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.DeveloperID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.DeveloperID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.DeveloperID })
-    </td>
-</tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeveloperID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeveloperName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.DeveloperID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.DeveloperID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.DeveloperID })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+    </div>

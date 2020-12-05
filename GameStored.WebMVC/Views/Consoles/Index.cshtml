@@ -9,31 +9,34 @@
 <p>
     @Html.ActionLink("Add New Console", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th class="bg-success col-md-2">
-            @Html.DisplayNameFor(model => model.ConsoleID)
-        </th>
-        <th class="col-md-8 bg-info">
-            @Html.DisplayNameFor(model => model.ConsoleName)
-        </th>
-        <th class="col-md-2 bg-danger">Edit Info</th>
-    </tr>
+<div class="container-fluid">
+    <table class="table">
+            <tr>
+                <th class="bg-success">
+                    @Html.DisplayNameFor(model => model.ConsoleID)
+                </th>
+                <th class="bg-info">
+                    @Html.DisplayNameFor(model => model.ConsoleName)
+                </th>
+                <th class="bg-danger">Edit Info</th>
+            </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ConsoleID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ConsoleName)
-        </td>
-        <td class="col-md-2">
-            @Html.ActionLink("Edit", "Edit", new { id=item.ConsoleID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ConsoleID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ConsoleID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConsoleID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConsoleName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ConsoleID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ConsoleID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ConsoleID })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+    </div>

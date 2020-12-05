@@ -9,31 +9,34 @@
 <p>
     @Html.ActionLink("Add New Publisher", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th class="bg-warning col-md-2">
-            @Html.DisplayNameFor(model => model.PublisherID)
-        </th>
-        <th class="col-md-8 bg-success">
-            @Html.DisplayNameFor(model => model.PublisherName)
-        </th>
-        <th class="col-md-2 bg-danger">Edit Info</th>
-    </tr>
+<div class="container-fluid">
+    <table class="table">
+        <tr>
+            <th class="bg-warning">
+                @Html.DisplayNameFor(model => model.PublisherID)
+            </th>
+            <th class="bg-success">
+                @Html.DisplayNameFor(model => model.PublisherName)
+            </th>
+            <th class="bg-danger">Edit Info</th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PublisherID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PublisherName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PublisherID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PublisherID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PublisherID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublisherID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PublisherName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PublisherID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PublisherID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PublisherID })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+    </div>
