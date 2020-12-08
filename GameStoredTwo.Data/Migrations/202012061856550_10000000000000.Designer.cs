@@ -7,13 +7,13 @@ namespace GameStoredTwo.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class _10000000000000 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_10000000000000));
         
         string IMigrationMetadata.Id
         {
-            get { return "202012042158362_InitialCreate"; }
+            get { return "202012061856550_10000000000000"; }
         }
         
         string IMigrationMetadata.Source

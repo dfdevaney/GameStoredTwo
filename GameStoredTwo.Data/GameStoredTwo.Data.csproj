@@ -61,17 +61,9 @@
     <Compile Include="Developer.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202012031445365_first.cs" />
-    <Compile Include="Migrations\202012031445365_first.designer.cs">
-      <DependentUpon>202012031445365_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012031537402_first1.cs" />
-    <Compile Include="Migrations\202012031537402_first1.designer.cs">
-      <DependentUpon>202012031537402_first1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202012042158362_InitialCreate.cs" />
-    <Compile Include="Migrations\202012042158362_InitialCreate.designer.cs">
-      <DependentUpon>202012042158362_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202012061856550_10000000000000.cs" />
+    <Compile Include="Migrations\202012061856550_10000000000000.designer.cs">
+      <DependentUpon>202012061856550_10000000000000.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,14 +81,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012031445365_first.resx">
-      <DependentUpon>202012031445365_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012031537402_first1.resx">
-      <DependentUpon>202012031537402_first1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202012042158362_InitialCreate.resx">
-      <DependentUpon>202012042158362_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202012061856550_10000000000000.resx">
+      <DependentUpon>202012061856550_10000000000000.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
